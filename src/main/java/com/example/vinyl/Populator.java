@@ -24,11 +24,11 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Category videoGame = new Category("Video Games");
-        Category anime = new Category("Anime");
-        Category hipHop = new Category("Hip Hop");
-        Category jazz = new Category("Jazz");
-        Category electronic = new Category("Electronic");
+        Category videoGame = new Category("Video Games", "https://i.discogs.com/0PDfsUDgSUGZjfQTqRRBq_stRpGBlm0SM0RcSz9qEII/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWltYWdlcy9SLTYz/OTIyNzgtMTQxODA5/NzQxNy01OTM1Lmpw/ZWc.jpeg");
+        Category anime = new Category("Anime", "https://i.discogs.com/omYm4Mn69Pk4dWs7p4MrXr1afnJD0fTCUEKuQ124bH0/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWltYWdlcy9SLTE2/MTUwODgwLTE2MDQz/MDA4MjctMzk3Ni5q/cGVn.jpeg");
+        Category hipHop = new Category("Hip Hop", "https://i.discogs.com/jBLfLo2fXv1pqgIOlujtF-ZxxVPYohm-UQRNCp8hF7Y/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWltYWdlcy9SLTM0/OTIzMi0xMjY2NDcy/MjI3LmpwZWc.jpeg");
+        Category jazz = new Category("Jazz", "https://i.discogs.com/Rpes57v509z7BYI9jJ8JxJXRjvsdXnxsDCQdvM4plLE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWltYWdlcy9SLTEw/NDM4NzYtMTE4NzQ3/NjcyNS5qcGVn.jpeg");
+        Category electronic = new Category("Electronic", "https://i.discogs.com/ItdYK9iVb_lJiw5uBzVBqLQ0-1Y39JsJ09giDd7PKtc/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWltYWdlcy9SLTE1/MzcwMC0xMzQxNjU1/MDUwLTUzOTAuanBl/Zw.jpeg");
         categoryRepo.save(videoGame);
         categoryRepo.save(anime);
         categoryRepo.save(hipHop);
