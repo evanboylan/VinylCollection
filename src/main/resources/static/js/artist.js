@@ -6,6 +6,10 @@ import {
     displayRecordView
 } from "./record.js"
 
+import {
+    displayArtistView
+} from "./artist.js"
+
 function displayArtistView(mainEl, artist) {
     const artistSectionEl = document.createElement("div");
     artistSectionEl.classList.add("artist_section");
@@ -47,8 +51,19 @@ function displayArtistView(mainEl, artist) {
             displayRecordView(mainEl, record);
         })
 
+        const recordArtistNameEl = document.createElement("p");
+        recordArtistNameEl.src = record.artist.name;
+        recordArtistNameEl.alt = "artist name";
+        recordArtistNameEl.classList.add("clickable_el");
+        recordArtistNameEl.classList.add("artist_name");
+        recordArtistNameEl.addEventListener("click", () => {
+            clearChildren(mainEl);
+            displayArtistView(mainEl, record.artist);
+        })
+
         recordInfoEl.appendChild(recordImageEl);
         recordInfoEl.appendChild(recordNameEl);
+        recordInfoEl.appendChild(recordArtistNameEl);
 
         recordsDisplayEl.appendChild(recordInfoEl);
     })
