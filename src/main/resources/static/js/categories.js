@@ -40,6 +40,7 @@ function displayAllCategoriesView(mainEl, categories){
     })
 
     mainEl.appendChild(categoriesOverviewSectionEl);
+    
 }
 
 export {
