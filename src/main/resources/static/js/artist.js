@@ -14,7 +14,7 @@ function displayArtistView(mainEl, artist) {
     artistInfoSectionEl.classList.add("artist_info_section");
 
     const artistPictureEl = document.createElement("img");
-    artistPictureEl.src = artist.image;
+    artistPictureEl.src = artist.imageUrl;
     artistPictureEl.alt = "artist portrait";
 
     const artistNameEl = document.createElement("p");
@@ -28,7 +28,7 @@ function displayArtistView(mainEl, artist) {
         recordInfoEl.classList.add("singleRecordEl");
         
         const recordImageEl = document.createElement("img");
-        recordImageEl.src = record.image;
+        recordImageEl.src = record.imageUrl;
         recordImageEl.alt = "record image";
         recordImageEl.classList.add("clickable_el");
         recordImageEl.classList.add("record_image");
@@ -53,14 +53,13 @@ function displayArtistView(mainEl, artist) {
         recordsDisplayEl.appendChild(recordInfoEl);
     })
 
-    recordsDisplayEl.appendChild(recordInfoEl);
-
     artistInfoSectionEl.appendChild(artistPictureEl);
     artistInfoSectionEl.appendChild(artistNameEl);
 
     artistSectionEl.appendChild(artistInfoSectionEl);
     artistSectionEl.appendChild(recordsDisplayEl);
 
+    mainEl.appendChild(artistSectionEl);
 }
 
 export {

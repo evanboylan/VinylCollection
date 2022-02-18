@@ -14,7 +14,7 @@ function displayAllArtistsView(mainEl, artists){
         const artistSectionEl = document.createElement("section");
 
         const artistPictureEl = document.createElement("img");
-        artistPictureEl.src = artist.image;
+        artistPictureEl.src = artist.imageUrl;
         artistPictureEl.alt = "artist portrait";
         artistPictureEl.classList.add("clickable_el");
         artistPictureEl.classList.add("artist_portrait");

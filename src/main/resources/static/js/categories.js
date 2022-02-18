@@ -14,7 +14,7 @@ function displayAllCategoriesView(mainEl, categories){
         const categorySectionEl = document.createElement("section");
 
         const categoryPictureEl = document.createElement("img");
-        categoryPictureEl.src = category.image;
+        categoryPictureEl.src = category.imageUrl;
         categoryPictureEl.alt = "category picture";
         categoryPictureEl.classList.add("clickable_el");
         categoryPictureEl.classList.add("category_picture");
@@ -40,7 +40,6 @@ function displayAllCategoriesView(mainEl, categories){
     })
 
     mainEl.appendChild(categoriesOverviewSectionEl);
-    
 }
 
 export {
