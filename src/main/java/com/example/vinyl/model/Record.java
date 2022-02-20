@@ -13,6 +13,7 @@ public class Record {
 
     private String name;
     private String imageUrl;
+    private String bigImageUrl;
     private String releaseYear;
     private String label;
     private String barcode;
@@ -24,9 +25,10 @@ public class Record {
     @ManyToOne
     private Artist artist;
 
-    public Record(String name, String imageUrl, String releaseYear, String label, String barcode, String color, Artist artist, Category... category) {
+    public Record(String name, String imageUrl, String bigImageUrl, String releaseYear, String label, String barcode, String color, Artist artist, Category... category) {
         this.name = name;
         this.imageUrl = imageUrl;
+        this.bigImageUrl = bigImageUrl;
         this.releaseYear = releaseYear;
         this.label = label;
         this.barcode = barcode;
@@ -48,6 +50,10 @@ public class Record {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getBigImageUrl() {
+        return bigImageUrl;
     }
 
     public String getReleaseYear() {
