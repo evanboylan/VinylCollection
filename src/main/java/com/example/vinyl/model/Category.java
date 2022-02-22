@@ -11,7 +11,7 @@ public class Category {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String name;
     private String imageUrl;
@@ -27,7 +27,7 @@ public class Category {
     public Category() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

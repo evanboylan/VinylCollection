@@ -81,8 +81,11 @@ function buildMainElement(){
     const mainEl = document.createElement("main");
     mainEl.classList.add("main-content");
     containerEl.appendChild(mainEl);
-    clearChildren(mainEl);
-    displayHomeView(mainEl);
+    fetch("/categories/")
+    .then(res => res.json())
+    .then(categories => {
+        displayAllCategoriesView(mainEl, categories);
+    })
 }
 
 function buildFooter(){

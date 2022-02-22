@@ -8,7 +8,7 @@ public class Artist {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String name;
     private String imageUrl;
@@ -24,7 +24,7 @@ public class Artist {
     public Artist() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

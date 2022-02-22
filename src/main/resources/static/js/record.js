@@ -3,6 +3,7 @@ import {
 } from "./app.js";
 
 import { displayArtistView } from "./artist.js";
+import { displayCategoryView } from "./category.js";
 
 function displayRecordView(mainEl, record) {
     const recordDisplaySectionEl = document.createElement("div");
@@ -16,12 +17,11 @@ function displayRecordView(mainEl, record) {
     recordImageEl.classList.add("big_image");
 
     recordImageSectionEl.appendChild(recordImageEl);
-    recordDisplaySectionEl.appendChild(recordImageSectionEl);
 
     const recordInfoSectionEl = document.createElement("div");
     recordInfoSectionEl.classList.add("record_info_section");
 
-    const recordInfoEl = document.createElement("ul");
+    const recordInfoEl = document.createElement("div");
     recordInfoEl.classList.add("record_info");
 
     const recordNameArtistSectionEl = document.createElement("div");
@@ -31,7 +31,7 @@ function displayRecordView(mainEl, record) {
     recordNameEl.style.fontSize = "large";
 
     const recordArtistEl = document.createElement("p");
-    recordArtistEl.src = record.artist.name;
+    recordArtistEl.src = record.artist.name + " - ";
     recordArtistEl.style.fontSize = "large";
     recordArtistEl.classList.add("clickable_el");
     recordArtistEl.addEventListener("click", () => {
@@ -39,8 +39,8 @@ function displayRecordView(mainEl, record) {
         displayArtistView(mainEl, record.artist);
     })
 
-    recordNameArtistSectionEl.appendChild(recordNameEl);
     recordNameArtistSectionEl.appendChild(recordArtistEl);
+    recordNameArtistSectionEl.appendChild(recordNameEl);
 
     const recordCategoriesSectionEl = document.createElement("div");
     recordCategoriesSectionEl.classList.add("record_categories_Section");
@@ -51,33 +51,46 @@ function displayRecordView(mainEl, record) {
 
         const singleCategoryEl = document.createElement("p");
         singleCategoryEl.src = category.name;
+        singleCategoryEl.classList.add("clickable_el");
+
+        singleCategoryEl.addEventListener("click", () => {
+            clearChildren(mainEl);
+            displayCategoryView(mainEl, category);
+        })
 
         singleCategorySectionEl.appendChild(singleCategoryEl);
         recordCategoriesSectionEl.appendChild(singleCategorySectionEl);
     })
 
-    const recordColorEl = document.createElement("p");
-    recordColorEl.src = record.color;
-
-    const recordBarcodeEl = document.createElement("p");
-    recordBarcodeEl.src = record.barcode;
+    const secondaryRecordInfoEl = document.createElement("div");
+    secondaryRecordInfoEl.classList.add("secondary_record_info");
 
     const recordLabelEl = document.createElement("p");
-    recordLabelEl.src = record.label;
+    recordLabelEl.src = "Label: " + record.label;
 
     const recordReleaseYearEl = document.createElement("p");
-    recordReleaseYearEl.src = record.releaseYear;
+    recordReleaseYearEl.src = "Pressing Released: " + record.releaseYear;
+    
+    const recordColorEl = document.createElement("p");
+    recordColorEl.src = "Pressing Color: " + record.color;
+
+    const recordBarcodeEl = document.createElement("p");
+    recordBarcodeEl.src = "Label Code: " + record.barcode;
+
+    secondaryRecordInfoEl.appendChild(recordLabelEl);
+    secondaryRecordInfoEl.appendChild(recordReleaseYearEl);
+    secondaryRecordInfoEl.appendChild(recordColorEl);
+    secondaryRecordInfoEl.appendChild(recordBarcodeEl);
 
     recordInfoSectionEl.appendChild(recordInfoEl);
-    recordInfoEl.appendChild(recordNameArtistSectionEl);
-
+    recordInfoEl.appendChild(recordImageSectionEl);
     recordInfoEl.appendChild(recordNameArtistSectionEl);
     recordInfoEl.appendChild(recordCategoriesSectionEl);
-    recordInfoEl.appendChild(recordLabelEl);
-    recordInfoEl.appendChild();
-    recordInfoEl.appendChild();
-    recordInfoEl.appendChild();
-    recordInfoEl.appendChild();
+    recordInfoEl.appendChild(secondaryRecordInfoEl);
+
+    recordDisplaySectionEl.appendChild(recordInfoEl);
+
+    mainEl.appendChild(recordDisplaySectionEl);
 }
 
 export {

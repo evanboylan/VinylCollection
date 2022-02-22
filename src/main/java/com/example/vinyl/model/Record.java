@@ -9,7 +9,7 @@ public class Record {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String name;
     private String imageUrl;
@@ -40,7 +40,7 @@ public class Record {
     public Record() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
