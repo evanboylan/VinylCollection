@@ -1,5 +1,7 @@
 package com.example.vinyl.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
@@ -19,7 +21,7 @@ public class Record {
     private String barcode;
     private String color;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "records")
     private Collection<Category> categories;
 
     @ManyToOne

@@ -1,5 +1,7 @@
 package com.example.vinyl.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,7 +18,8 @@ public class Category {
     private String name;
     private String imageUrl;
 
-    @ManyToMany(mappedBy = "categories")
+    @ManyToMany
+    @JsonIgnore
     private Collection<Record> records;
 
     public Category(String name, String imageUrl) {
